@@ -1,0 +1,28 @@
+{
+  "name": "bettar",
+  "version": "1.0.0",
+  "description": "A tar-like utilitiy with support for more advanced ignore files",
+  "main": "index.mjs",
+  "bin": {
+    "bettar": "./index.mjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs -zf output.tar.gz ./"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [],
+  "author": "Paul den Otter <paul@fulltag.dev> (https://fulltag.dev/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FullTag/bettar.git"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "fast-glob": "^3.3.2",
+    "tar": "^7.0.1"
+  }
+}
