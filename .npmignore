@@ -3,3 +3,4 @@
 .bettarignore
 output.tar.gz
 .npmrc
+Dockerfile

@@ -1,21 +1,32 @@
-name: Publish
+name: Publish NPM
 on:
   push:
     tags:
       - "v*.*.*"
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag'
+        required: true
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v3
         with:
           version: 9
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+
       - run: pnpm publish --no-git-checks
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: gh workflow run publish-docker.yaml -F tag=v${{ inputs.tag || github.ref_name }}
+        env:
+          GH_TOKEN: ${{ github.token }}
