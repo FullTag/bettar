@@ -1,6 +1,6 @@
 {
   "name": "bettar",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A tar-like utilitiy with support for more advanced ignore files",
   "main": "index.mjs",
   "bin": {
