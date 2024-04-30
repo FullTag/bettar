@@ -17,8 +17,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-        with:
-          platforms: linux/amd64,linux/arm64,darwin/arm64
 
       - name: Login to Docker Hub
         if: github.event_name != 'pull_request'
@@ -46,6 +44,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          platforms: linux/amd64,linux/arm64,darwin/arm64
           build-args: TAG=${{ inputs.tag }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
