@@ -38,8 +38,8 @@ async function main() {
   await create({
     file: options.file,
     gzip: options.gzip,
-    cwd
-  }, files).catch(() => {
+    cwd,
+  }, files).catch((err) => {
     throw new Error(`Failed to create the archive: ${err.message}`)
   })
   log('Done')
